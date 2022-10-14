@@ -1,5 +1,6 @@
 package com.Code.Pakket.management.model;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Modifying;
 
 import javax.persistence.Entity;

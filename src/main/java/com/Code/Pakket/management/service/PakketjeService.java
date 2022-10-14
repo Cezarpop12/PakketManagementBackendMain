@@ -8,4 +8,6 @@ import java.util.List;
 public interface PakketjeService {
     public Pakketje pakketjeOpslaan(Pakketje pakketje);
     public List<Pakketje> getAllePakketjes();
+    public Pakketje getPakketjeById(int id);
+    public Pakketje statusOnderweg(Pakketje pakketje);
 }
