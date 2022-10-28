@@ -19,7 +19,7 @@ public class PakketjeController {
     @PostMapping("/add")
     public String add(@RequestBody Pakketje pakketje) {
         pakketjeService.pakketjeOpslaan(pakketje);
-        return "Pakketje opgeslagen!";
+        return "Pakketje opgeslagenn!";
     }
 
     @GetMapping("/getAll")
