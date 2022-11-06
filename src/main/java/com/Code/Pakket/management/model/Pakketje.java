@@ -20,6 +20,12 @@ public class Pakketje {
     public Pakketje() {
     }
 
+    public Pakketje(int Id, int Code, String Status) {
+        this.id = Id;
+        this.code = Code;
+        this.status = "In magazijn";
+    }
+
     public int getId() {
         return id;
     }

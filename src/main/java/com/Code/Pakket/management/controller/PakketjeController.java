@@ -17,9 +17,8 @@ public class PakketjeController {
     private PakketjeService pakketjeService;
 
     @PostMapping("/add")
-    public String add(@RequestBody Pakketje pakketje) {
+    public void add(@RequestBody Pakketje pakketje) {
         pakketjeService.pakketjeOpslaan(pakketje);
-        return "Pakketje opgeslagen!";
     }
 
     @GetMapping("/getAll")
@@ -35,6 +34,13 @@ public class PakketjeController {
     @PutMapping("/updateOnderweg")
     public Pakketje statusIsOnderweg(@RequestBody Pakketje pakketje) {
         return pakketjeService.statusOnderweg(pakketje);
+    }
+
+    public boolean codeIsMeegegeven(Pakketje pakketje){
+        if(pakketje.getCode() != 0 ){
+            return true;
+        }
+        else return false;
     }
 }
 
