@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 //De Service communiceert met de JPA repository om database operations uit te voeren.
+
 @Service
 public class PakketjeServiceImplimentation implements PakketjeService {
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private PakketjeRepository pakketjeRepository;
+
+    public PakketjeServiceImplimentation(PakketjeRepository pakketjeRepository) {
+    }
 
     @Override
     public Pakketje pakketjeOpslaan(Pakketje pakketje) {

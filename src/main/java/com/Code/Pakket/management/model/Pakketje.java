@@ -20,7 +20,7 @@ public class Pakketje {
     public Pakketje() {
     }
 
-    public Pakketje(int Id, int Code, String Status) {
+    public Pakketje(int Id, int Code) {
         this.id = Id;
         this.code = Code;
         this.status = "In magazijn";

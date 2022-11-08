@@ -21,7 +21,7 @@ public class PakketjeControllerTest {
 
     @Test
     void codeIsMeegegeven(){
-        Pakketje pakketje = new Pakketje(1, 1, "In magazijn");
+        Pakketje pakketje = new Pakketje(1, 1);
         assertTrue(pakketjeController.codeIsMeegegeven(pakketje));
     }
 
