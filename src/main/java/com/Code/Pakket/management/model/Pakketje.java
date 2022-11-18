@@ -17,6 +17,11 @@ public class Pakketje {
     private int code;
     private String status = "In magazijn";
 
+    //private string bedrijfsnaam
+    //of
+    //private string Bedrijf bedrijf
+    //Dus miss koppel le bedrijfsnaam in deze tabel aan de bedrijfsnaam van de bedrijf tabel
+
     public Pakketje() {
     }
 
