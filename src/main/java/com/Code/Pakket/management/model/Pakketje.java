@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//Men maakt een JPA entity class zodat hibernate met onze data kan werken.
 @Entity
 public class Pakketje {
     @Id
@@ -16,11 +15,6 @@ public class Pakketje {
     private int id;
     private int code;
     private String status = "In magazijn";
-
-    //private string bedrijfsnaam
-    //of
-    //private string Bedrijf bedrijf
-    //Dus miss koppel le bedrijfsnaam in deze tabel aan de bedrijfsnaam van de bedrijf tabel
 
     public Pakketje() {
     }
