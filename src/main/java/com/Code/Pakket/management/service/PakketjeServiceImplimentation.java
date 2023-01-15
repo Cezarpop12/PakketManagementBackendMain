@@ -1,6 +1,7 @@
 package com.Code.Pakket.management.service;
 
 import com.Code.Pakket.management.exceptions.PakketjeNietGevondenException;
+import com.Code.Pakket.management.model.Bedrijf;
 import com.Code.Pakket.management.model.Pakketje;
 import com.Code.Pakket.management.repository.PakketjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.List;
 @Service
 public class PakketjeServiceImplimentation implements PakketjeService {
 
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+//    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private PakketjeRepository pakketjeRepository;
 
@@ -26,25 +27,23 @@ public class PakketjeServiceImplimentation implements PakketjeService {
     @Override
     public Pakketje pakketjeOpslaan(Pakketje pakketje) {
         return pakketjeRepository.save(pakketje);
-        //De JPA repository (binnen PakketjeService) helpt ons met een
-        //aantal methodes zoals save en findall.
     }
 
-    //Ff override leren
     @Override
     public List<Pakketje> getAllePakketjes() {
         return pakketjeRepository.findAll();
     }
 
+    public List<Pakketje> getAllePakketjesBezorgdByStatus(String status){
+        return pakketjeRepository.getAllePakketjesBezorgdByStatus(status);
+    }
     @Override
     public Pakketje getPakketjeById(int id) {
     return pakketjeRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Pakketje statusOnderweg(Pakketje pakketje) {
-    Pakketje bestaandPakketje = pakketjeRepository.findById(pakketje.getId()).orElse(null);
-    bestaandPakketje.setStatus(pakketje.getStatus());
-    return pakketjeRepository.save(bestaandPakketje);
-    }
+    public void verwijderPakketje(Pakketje pakketje) {
+        this.pakketjeRepository.delete(pakketje);
+        }
 }

@@ -1,12 +1,13 @@
 package com.Code.Pakket.management.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Modifying;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Pakketje {
@@ -16,12 +17,24 @@ public class Pakketje {
     private int code;
     private String status = "In magazijn";
 
+    @ManyToMany
+    @JoinTable(
+            name = "paketjes_objecten",
+            joinColumns = @JoinColumn(name = "pakketje_id"),
+            inverseJoinColumns = @JoinColumn(name = "object_id")
+    )
+    private Set<Object> objecten = new HashSet<>();
+
     public Pakketje() {
     }
 
     public Pakketje(int Id, int Code) {
         this.id = Id;
         this.code = Code;
+        this.status = "In magazijn";
+    }
+    public Pakketje(int Id) {
+        this.id = Id;
         this.status = "In magazijn";
     }
 
@@ -47,5 +60,9 @@ public class Pakketje {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void assignObjectToPakketje(Object object) {
+        objecten.add(object);
     }
 }

@@ -8,11 +8,11 @@ public class Bedrijf {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String bedrijfsnaam;
-    private String gebruikersnaam;
-    private String wachtwoord;
-    @OneToMany
-    private List<Pakketje> pakketjes;
+    @Column(unique=true)
+    private String email;
+    private String password;
+//    @OneToMany
+//    private List<Pakketje> pakketjes;
 
     public Bedrijf() {
     }
@@ -25,27 +25,15 @@ public class Bedrijf {
         this.id = id;
     }
 
-    public String getBedrijfsnaam() {
-        return bedrijfsnaam;
+    public String getPassword() {
+        return password;
     }
 
-    public void setBedrijfsnaam(String bedrijfsnaam) {
-        this.bedrijfsnaam = bedrijfsnaam;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getGebruikersnaam() {
-        return gebruikersnaam;
-    }
+    public String getEmail() {return email;}
 
-    public void setGebruikersnaam(String gebruikersnaam) {
-        this.gebruikersnaam = gebruikersnaam;
-    }
-
-    public String getWachtwoord() {
-        return wachtwoord;
-    }
-
-    public void setWachtwoord(String wachtwoord) {
-        this.wachtwoord = wachtwoord;
-    }
+    public void setEmail(String email) {this.email = email;}
 }

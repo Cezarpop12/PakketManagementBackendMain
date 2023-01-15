@@ -9,5 +9,7 @@ public interface PakketjeService {
     public Pakketje pakketjeOpslaan(Pakketje pakketje);
     public List<Pakketje> getAllePakketjes();
     public Pakketje getPakketjeById(int id);
-    public Pakketje statusOnderweg(Pakketje pakketje);
+    public void verwijderPakketje(Pakketje pakketje);
+
+    public List<Pakketje> getAllePakketjesBezorgdByStatus(String status);
 }

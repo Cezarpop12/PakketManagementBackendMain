@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PakketjeRepository extends JpaRepository<Pakketje, Integer> {
-    public List<Pakketje> getAllePakketjesBezorgdByStatus(String status);
+public interface ObjectRepository extends JpaRepository<Object, Integer> {
+    public Object findObjectByobjectNaam(String objectNaam);
 }
