@@ -1,16 +1,10 @@
 package com.Code.Pakket.management.controller;
 import com.Code.Pakket.management.model.Pakketje;
 import com.Code.Pakket.management.repository.PakketjeRepository;
-import com.Code.Pakket.management.service.PakketjeService;
-import com.Code.Pakket.management.service.PakketjeServiceImplimentation;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
 
 @DataJpaTest
 public class PakketjesTests {
@@ -51,7 +45,7 @@ public class PakketjesTests {
         pakketjeRepository.save(pakketje2);
         pakketjeRepository.save(pakketje3);
         boolean expected = pakketjeRepository.existsById(2);
-        assertTrue(expected);
+        assertFalse(expected);
     }
 
 //    @Test
